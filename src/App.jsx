@@ -55,7 +55,7 @@ function Hero() {
             </div>
             <div className="hero-facts">
               <div className="fact"><strong>~1 hr</strong><span>per-door repair</span></div>
-              <div className="fact"><strong>$240</strong><span>Ford sublet allowance / door</span></div>
+              <div className="fact"><strong>$480</strong><span>Ford sublet allowance · 2-door</span></div>
               <div className="fact"><strong>0</strong><span>off-site transfers</span></div>
             </div>
           </div>
@@ -168,7 +168,8 @@ function Pricing() {
       <div className="wrap">
         <h2>The math works for the dealership</h2>
         <p className="lede">Ford's 23B56 program allows a <strong>$240-per-door sublet allowance</strong>
-        for the service-kit installation. You keep the difference while we handle everything.</p>
+        for the service-kit installation — <strong>$480 for a two-door vehicle</strong> (plus sublet
+        admin time). You keep the difference while we handle everything.</p>
         <div className="tiers">
           <div className="tier">
             <div className="tag">1–4 / wk</div>
@@ -186,8 +187,9 @@ function Pricing() {
             <p>Partner rate</p>
           </div>
         </div>
-        <p className="fine">Your margin per kit door at standard rate: <strong>$20+</strong> — plus zero transport
-        cost, zero loaner pressure, zero customer friction. Pilot pricing locked for 90 days.</p>
+        <p className="fine">Your margin per kit door at standard rate: <strong>$20+</strong> — a typical
+        two-door job runs about <strong>$440–$500 all-in with accessories and materials</strong>.
+        Zero transport cost, zero loaner pressure, zero customer friction. Pilot pricing locked for 90 days.</p>
       </div>
     </section>
   )
