@@ -37,9 +37,10 @@ jobs:
         id: deploy
         run: |
           set -o pipefail
-          ARGS=(--project-name=autobody-republic --branch="${GITHUB_REF_NAME:-main}")
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            ARGS+=(--branch="${{ github.head_ref }}")
+            ARGS=(--project-name=autobody-republic --branch="${{ github.head_ref }}")
+          else
+            ARGS=(--project-name=autobody-republic --branch="${GITHUB_REF_NAME:-main}")
           fi
           OUT=$(npx wrangler@latest pages deploy dist "${ARGS[@]}" 2>&1 | tee /dev/stderr)
           URL=$(echo "$OUT" | grep -oE 'https://[a-z0-9-]+\.pages\.dev' | tail -1)
