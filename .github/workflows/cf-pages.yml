@@ -1,0 +1,65 @@
+name: cf-pages
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore: ['**.md']
+  push:
+    branches: [main]
+    paths-ignore: ['**.md']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install
+        run: npm install --legacy-peer-deps
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy (production on main / preview on PR)
+        id: deploy
+        run: |
+          set -o pipefail
+          ARGS=(--project-name=autobody-republic --branch="${GITHUB_REF_NAME:-main}")
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            ARGS+=(--branch="${{ github.head_ref }}")
+          fi
+          OUT=$(npx wrangler@latest pages deploy dist "${ARGS[@]}" 2>&1 | tee /dev/stderr)
+          URL=$(echo "$OUT" | grep -oE 'https://[a-z0-9-]+\.pages\.dev' | tail -1)
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Comment preview URL (PRs)
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const url = '${{ steps.deploy.outputs.url }}';
+            const body = url
+              ? `🚀 Preview deploy: **${url}**`
+              : '🚀 Preview deployed (see workflow run for URL).';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
