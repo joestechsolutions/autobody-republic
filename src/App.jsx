@@ -50,7 +50,7 @@ function Hero() {
               About <strong>one hour per vehicle</strong> (both doors), using Ford's current repair procedure.
             </p>
             <div className="cta-row">
-              <a className="btn btn-red btn-big" href="#booking">Schedule a vehicle</a>
+              <a className="btn btn-red btn-big" href="/book">Schedule a vehicle</a>
               <a className="btn btn-ghost btn-big" href="#how">How it works</a>
             </div>
             <div className="hero-facts">
@@ -217,14 +217,13 @@ function Booking() {
     <section className="sec sec-book" id="booking">
       <div className="wrap">
         <h2>Put a vehicle on our calendar</h2>
-        <p className="lede">Pick your dealership, choose an open slot, enter VIN + RO. Instant confirmation — no approval wait.</p>
+        <p className="lede">Pick an open slot, enter VIN + RO, pay by card. Instant confirmation — no approval wait, no phone tag.</p>
         <div className="book-card">
           <div className="book-note">
-            <strong>Live booking opens with the pilot dealership.</strong><br />
-            Service managers: call or text now to get on the schedule and lock pilot pricing.
+            <strong>Self-serve scheduling is live.</strong> Pick a slot, pay, done — the shop shows up at your service drive. Pilot pricing locked 90 days.
           </div>
-          <a className="btn btn-red btn-big" href={PHONE}>Call (805) 423-5325</a>
-          <a className="btn btn-ghost btn-big" href={EMAIL}>Email the shop</a>
+          <a className="btn btn-red btn-big" href="/book">Book online — pay by card</a>
+          <a className="btn btn-ghost btn-big" href={PHONE}>Call (805) 423-5325</a>
         </div>
       </div>
     </section>
