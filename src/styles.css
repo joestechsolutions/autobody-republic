@@ -120,3 +120,5 @@ h1, h2, h3, h4, .brand-name, .price { font-family: Archivo, Inter, sans-serif; l
 .ftr-links { display: flex; flex-direction: column; gap: 8px; }
 .ftr-links a { color: var(--sub); font-weight: 600; text-decoration: none; font-size: 14.5px; }
 .ftr-stripe { height: 10px; background: var(--red); }
+
+@import "./bk.css";

@@ -1,0 +1,34 @@
+
+/* booking + admin */
+.bk { padding: 34px 20px 70px; max-width: 720px; }
+.bk h1 { font-family: Archivo; font-size: 30px; font-weight: 900; margin-bottom: 6px; }
+.bk h3 { font-size: 16px; font-weight: 800; margin-bottom: 12px; }
+.bk-step { margin-top: 16px; }
+input[type=date], .bk label input { width: 100%; border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; font: inherit; font-size: 15px; background: #fff; outline: none; margin-top: 6px; }
+input[type=date]:focus, .bk label input:focus { border-color: var(--red); }
+.bk label { display: block; margin-top: 14px; font-size: 13.5px; font-weight: 700; color: var(--sub); }
+.slotgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (min-width: 560px) { .slotgrid { grid-template-columns: repeat(4, 1fr); } }
+.slot { border: 1.5px solid var(--line); background: #fff; border-radius: 12px; padding: 13px 6px; font: inherit; font-size: 14.5px; font-weight: 700; cursor: pointer; min-height: 48px; }
+.slot.on { border-color: var(--red); background: var(--red-soft); color: var(--red); }
+.slot.off { opacity: .35; cursor: not-allowed; text-decoration: line-through; }
+.doorpick { display: flex; gap: 10px; margin-top: 6px; }
+.doorpick button { flex: 1; border: 1.5px solid var(--line); background: #fff; border-radius: 12px; padding: 13px; font: inherit; font-weight: 700; font-size: 14.5px; cursor: pointer; min-height: 48px; }
+.doorpick button.on { border-color: var(--red); background: var(--red-soft); color: var(--red); }
+.bk-total { display: flex; justify-content: space-between; align-items: center; margin: 18px 0; padding: 14px 16px; background: var(--gray); border-radius: 12px; font-size: 14.5px; }
+.bk-total strong { font-family: Archivo; font-size: 22px; font-weight: 900; }
+.done { border-top: 6px solid var(--green); }
+.done h3 { color: var(--green); }
+
+/* admin */
+.admintable { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.admintable th { text-align: left; color: var(--faint); font-size: 11.5px; letter-spacing: .06em; padding: 6px 8px; border-bottom: 2px solid var(--line); }
+.admintable td { padding: 10px 8px; border-bottom: 1px solid var(--line); }
+.pay { font-weight: 800; font-size: 11.5px; padding: 3px 9px; border-radius: 999px; }
+.pay.paid { color: var(--green); background: #eef6f0; }
+.pay.pending { color: var(--red); background: var(--red-soft); }
+.mini { border: 1.5px solid var(--line); background: #fff; border-radius: 9px; padding: 7px 12px; font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+.blockrow { display: flex; gap: 10px; margin-top: 10px; }
+.blockrow input { flex: 1; }
+.blocks { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.blockchip { background: var(--red-soft); color: var(--red); font-weight: 700; font-size: 13px; padding: 7px 12px; border-radius: 999px; cursor: pointer; }
