@@ -47,14 +47,14 @@ function Hero() {
               Autobody Republic performs the 23B56 door-check reinforcement repair
               <strong> on-site</strong> — the vehicle never leaves your lot. No off-site
               transfers, no customer shuttles, no coordination with an outside collision shop.
-              About <strong>one hour per door</strong>, using Ford's current repair procedure.
+              About <strong>one hour per vehicle</strong> (both doors), using Ford's current repair procedure.
             </p>
             <div className="cta-row">
               <a className="btn btn-red btn-big" href="#booking">Schedule a vehicle</a>
               <a className="btn btn-ghost btn-big" href="#how">How it works</a>
             </div>
             <div className="hero-facts">
-              <div className="fact"><strong>~1 hr</strong><span>per-door repair</span></div>
+              <div className="fact"><strong>~1 hr</strong><span>per-vehicle repair</span></div>
               <div className="fact"><strong>$480</strong><span>Ford sublet allowance · 2-door</span></div>
               <div className="fact"><strong>0</strong><span>off-site transfers</span></div>
             </div>
@@ -126,9 +126,10 @@ function Services() {
             <div className="tag">SERVICE A</div>
             <h3>On-site kit repair</h3>
             <p>Door check-arm reinforcement using Ford's current rivet-plate procedure.
-             One or two doors, completed in your service drive.</p>
+             One or both doors, completed in your service drive.</p>
             <ul>
-              <li>~1 hr single door · ~2.6 hr labor two-door</li>
+              <li>~1 hr total per vehicle — both doors done in one visit</li>
+              <li>Applies when the door is repairable; full door replacement is a separate managed job (roadmap)</li>
               <li>Pre/post photo documentation on every job</li>
               <li>VIN + RO tracked end-to-end</li>
             </ul>
