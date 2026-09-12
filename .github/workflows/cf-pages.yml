@@ -53,10 +53,12 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const url = '${{ steps.deploy.outputs.url }}';
-            const body = url
-              ? `🚀 Preview deploy: **${url}**`
-              : '🚀 Preview deployed (see workflow run for URL).';
+            const safe = (context.payload.pull_request.head.ref || 'preview').replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();
+            const direct = '${{ steps.deploy.outputs.url }}';
+            const alias = `https://${safe}.autobody-republic.pages.dev`;
+            const body = direct
+              ? `🚀 Preview deploy: **${direct}** (stable: ${alias})`
+              : `🚀 Preview deploy: **${alias}**`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
